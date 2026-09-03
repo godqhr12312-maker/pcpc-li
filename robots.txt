@@ -1,0 +1,8 @@
+User-Agent: Yeti
+Allow: /
+
+User-Agent: *
+Allow: /
+
+Host: https://pcpc.li
+Sitemap: https://pcpc.li/sitemap.xml

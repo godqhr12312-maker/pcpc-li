@@ -1,0 +1,31 @@
+{
+  "name": "성피모 · 성인PC방 오너 인증제 모임",
+  "short_name": "성피모",
+  "description": "성인PC방 오너와 예비 창업자를 위한 인증제 폐쇄형 커뮤니티, 성피모입니다.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "ko",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

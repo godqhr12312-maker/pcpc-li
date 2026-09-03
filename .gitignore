@@ -1,0 +1,14 @@
+# 로컬 테스트 전용 (깃허브에 올리지 않음)
+server.js
+.server_url
+
+# 백업 / 임시 파일
+_backup-*/
+*.bak
+*.tmp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 이미지 원본 (배포 안 함)
+_원본*

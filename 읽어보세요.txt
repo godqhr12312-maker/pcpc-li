@@ -1,0 +1,74 @@
+성피모 랜딩페이지 — 현재 상태와 남은 것
+==========================================
+
+주소 : https://pcpc.li
+틀   : pc365.it.kr 과 HTML·CSS·JS 골격이 같습니다. 글·링크·이미지·파비콘만 성피모용입니다.
+
+
+■ 도메인 — 반영 완료
+----------------------
+pcpc.li 로 전부 들어갔습니다.
+  · index.html 30곳 (canonical, og:url, 구조화데이터 등)
+  · robots.txt, sitemap.xml
+  · CNAME 파일 생성 (깃허브 페이지에 올릴 때 쓰입니다)
+
+주소를 또 바꿀 일이 생기면 이 폴더에서 PowerShell 로 아래 한 줄.
+(끝에 / 를 붙이지 마세요)
+
+  Get-ChildItem -Include *.html,*.xml,*.txt -Recurse |
+    ForEach-Object { (Get-Content $_ -Raw -Encoding UTF8) -replace 'https://pcpc\.li','https://새주소' |
+    Set-Content $_ -NoNewline -Encoding UTF8 }
+
+CNAME 파일 내용도 같이 바꾸세요 (https:// 없이 주소만).
+
+
+■ 올린 다음에 할 일
+---------------------
+1. 구글 서치콘솔 (search.google.com/search-console) 에 pcpc.li 등록
+   → 받은 확인 코드를 index.html 의 "검색엔진 소유권 확인" 주석 안에 넣고 주석 해제
+   → sitemap.xml 제출
+
+2. 네이버 서치어드바이저 (searchadvisor.naver.com) 에도 같은 방식으로 등록
+   robots.txt 에 네이버 봇(Yeti) 허용이 이미 들어가 있습니다.
+
+3. 카톡·텔레그램에 링크를 한 번 붙여넣어 썸네일이 뜨는지 확인
+   (og-image.jpg 1200x630 이 미리 들어가 있습니다)
+
+
+■ 텔레그램
+------------
+https://t.me/pc365s 로 4곳이 연결되어 있습니다.
+  · 히어로 버튼 2개 (가입 문의 / 인증 안내)
+  · 404 페이지 버튼
+  · 구조화데이터 sameAs
+바꾸려면 index.html 에서 t.me/pc365s 를 찾아 바꾸세요.
+
+
+■ 팝업 배너 — 기능은 살아있고 지금은 꺼둔 상태
+------------------------------------------------
+켜려면 두 가지만 하세요.
+  1. popup-banner.mp4 와 popup-poster.webp 를 이 폴더에 넣기
+  2. index.html 맨 아래 스크립트에서
+       var ENABLED = false;   →   var ENABLED = true;
+
+
+■ 이미지
+----------
+보내주신 포스터(_원본포스터.png)에서 전부 뽑았습니다.
+
+  download.jpg / .webp          825 x 1238   히어로 옆 세로 포스터
+  download-520.jpg / .webp      520 x  780   작은 화면용
+  og-image.jpg                 1200 x  630   카톡·SNS 공유 썸네일
+  logo-header.png               877 x  263   헤더·푸터 로고 (투명 배경)
+  logo-header-500.png / .webp   500 x  150
+  logo-header-260.png / .webp   260 x   78
+  favicon.svg, favicon-32.png, apple-touch-icon.png,
+  icon-192.png, icon-512.png                 검정 배경 + 금색 성피모
+
+  · 로고를 새로 만들면 같은 이름으로 덮어쓰기만 하면 됩니다.
+  · _원본포스터.png 와 server.js 는 깃허브에 올라가지 않습니다(.gitignore).
+
+
+■ 미리보기
+------------
+이 폴더에서  node server.js  실행 → 뜨는 주소를 브라우저에 붙여넣기.
