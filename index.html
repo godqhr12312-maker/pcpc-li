@@ -849,7 +849,6 @@ main:focus { outline: none; }
       <!-- poster: 영상이 도착하기 전과 자동재생이 막힌 기기에서 대신 보이는 첫 프레임 -->
       <video id="popupVideo" width="1000" height="1600" autoplay muted loop playsinline
              webkit-playsinline disableremoteplayback preload="none"
-             poster="popup-poster.webp"
              aria-label="성피모 안내 영상 배너"></video>
       <!-- 저전력 모드 등으로 자동재생이 막혔을 때만 나타난다 -->
       <button type="button" class="popup-play" id="popupPlay" aria-label="영상 재생">▶</button>
@@ -886,6 +885,7 @@ main:focus { outline: none; }
   (function(){
     var ENABLED = false;   // ← popup-banner.mp4 를 넣은 뒤 true 로 바꾸면 팝업이 켜집니다
     var VIDEO   = 'popup-banner.mp4';
+    var POSTER  = 'popup-poster.webp';   // 영상 도착 전에 보여줄 첫 화면
     var LINK    = 'https://t.me/korea24s';
     var VERSION = 'v1';
 
@@ -966,6 +966,7 @@ main:focus { outline: none; }
     //   첫 프레임에서 멈춘 것처럼 보인다. 이 두 줄의 순서를 바꾸지 말 것.
     function start(){
       open();                             // ← 먼저 렌더 트리에 올린다
+      video.poster = POSTER;              // 켜질 때만 불러온다(꺼져 있으면 요청 자체가 없다)
       video.muted = true;                 // 자동재생 허용 조건
       video.preload = 'auto';
       video.addEventListener('error', function(){
